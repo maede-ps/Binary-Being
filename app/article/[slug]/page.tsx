@@ -5,7 +5,7 @@ import { getPostBySlug } from "@/lib/posts";
 
 type Article = {
   slug: string;
-  headline: string;
+  title: string;
   subheadline?: string;
   author: string;
   date: string;
@@ -49,11 +49,10 @@ export default async function ArticlePage({ params }: { params: { slug: string }
         </header>
 
         {/* Article */}
-        {/* Article */}
         <article className="border-2 border-black p-8 bg-[#f5f2e8]">
           <div className="text-sm uppercase tracking-wider mb-2 font-bold">{article.category}</div>
 
-          <h1 className="text-4xl font-black leading-tight mb-3 tracking-wide">{article.headline}</h1>
+          <h1 className="text-4xl font-black leading-tight mb-3 tracking-wide">{article.title}</h1>
 
           {article.subheadline && <div className="text-xl italic font-light mb-6 leading-relaxed">{article.subheadline}</div>}
 

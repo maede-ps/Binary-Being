@@ -14,24 +14,20 @@ export function getAllPosts() {
     const fullPath = path.join(postsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
 
-    console.log("POSTS DIR:", postsDirectory);
-console.log("FILES:", fs.readdirSync(postsDirectory));
-
-    const { data, content } = matter(fileContents);
+    const { data } = matter(fileContents);
 
     return {
       slug,
       headline: data.title,
-      subheadline: data.excerpt ?? "",
+      subheadline: data.subheadline ?? "",
       author: data.author ?? "Unknown",
       date: data.date ?? "",
       category: data.category ?? "General",
       featured: data.featured ?? false,
-      contentText: content,
+      tags: data.tags ?? [],
     };
   });
 }
-
 
 export async function getPostBySlug(slug: string) {
   const fullPath = path.join(postsDirectory, `${slug}.md`);
@@ -39,19 +35,13 @@ export async function getPostBySlug(slug: string) {
 
   const { data, content } = matter(fileContents);
 
-  const contentHtml = await remark().use(html).process(content);
+  const processedContent = await remark()
+    .use(html)
+    .process(content);
 
-return {
-  slug,
-  headline: data.title,
-  subheadline: data.subheadline ?? "",
-  author: data.author ?? "Unknown",
-  date: data.date ?? "",
-  category: data.category ?? "General",
-  featured: data.featured ?? false,
-  tags: data.tags ?? [],
-  contentText: contentHtml.toString(),
-};
-
+  return {
+    slug,
+    contentText: processedContent.toString(),
+    ...data,
+  };
 }
-

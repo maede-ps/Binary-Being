@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Binary Being CMS</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 2rem; }
+    input, textarea, select, button { display: block; margin-bottom: 1rem; width: 100%; }
+    label { font-weight: bold; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+
+<script>
+  // Simple password protection
+  const pwd = prompt("Enter password to access the CMS:");
+  if (pwd !== "author123") {
+    alert("Access denied");
+    window.location.href = "/";
+  }
+</script>
+
+<h1>Create / Update Article</h1>
+
+<form id="cmsForm">
+  <label>Title</label>
+  <input name="title" required />
+
+  <label>Subheadline</label>
+  <input name="subheadline" />
+
+  <label>Author</label>
+  <input name="author" required />
+
+  <label>Date</label>
+  <input name="date" type="datetime-local" required />
+
+  <label>Category</label>
+  <input name="category" />
+
+  <label>Tags (comma separated)</label>
+  <input name="tags" />
+
+  <label>Featured</label>
+  <select name="featured">
+    <option value="false" selected>No</option>
+    <option value="true">Yes</option>
+  </select>
+
+  <label>Body (Markdown)</label>
+  <textarea name="body" rows="10"></textarea>
+
+  <button type="submit">Download Markdown</button>
+</form>
+
+<script>
+const form = document.getElementById('cmsForm');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const data = new FormData(form);
+
+  // Build frontmatter
+  const frontmatter = `---
+title: "${data.get('title')}"
+subheadline: "${data.get('subheadline') || ''}"
+author: "${data.get('author')}"
+date: "${new Date(data.get('date')).toISOString()}"
+category: "${data.get('category') || ''}"
+tags: [${(data.get('tags') || '').split(',').map(t => `"${t.trim()}"`).join(', ')}]
+featured: ${data.get('featured')}
+---
+
+${data.get('body')}
+`;
+
+  // Download Markdown file
+  const blob = new Blob([frontmatter], {type: "text/markdown"});
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = (data.get('title') || 'article').replace(/\s+/g, '-') + '.md';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+
+  alert("Markdown file downloaded! Upload it to content/posts/ in GitHub.");
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+name: Create Article
+
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: 'Article title'
+        required: true
+      author:
+        description: 'Author name'
+        required: true
+      date:
+        description: 'Date'
+        required: true
+      body:
+        description: 'Markdown content'
+        required: true
+
+jobs:
+  create-article:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Create new Markdown file
+        run: |
+          mkdir -p content/posts
+          FILE="content/posts/${{ github.event.inputs.title// /- }}.md"
+          echo "---" >> $FILE
+          echo "title: \"${{ github.event.inputs.title }}\"" >> $FILE
+          echo "author: \"${{ github.event.inputs.author }}\"" >> $FILE
+          echo "date: \"${{ github.event.inputs.date }}\"" >> $FILE
+          echo "---" >> $FILE
+          echo "${{ github.event.inputs.body }}" >> $FILE
+
+      - name: Show files
+        run: ls -l content/posts

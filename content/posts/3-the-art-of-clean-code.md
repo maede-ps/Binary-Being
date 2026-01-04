@@ -13,10 +13,10 @@ tags:
 featured: false
 ---
 
-<p>Any fool can write code that a computer can understand. Good programmers write code that humans can understand. Clean code isn't just about following conventions—it's about crafting software that tells a story, expresses intent clearly, and stands the test of time.</p>
+Any fool can write code that a computer can understand. Good programmers write code that humans can understand. Clean code isn't just about following conventions—it's about crafting software that tells a story, expresses intent clearly, and stands the test of time.
 
-<h3>Principles of Clean Code</h3>
-<p>Clean code is simple, focused, and expressive. It uses meaningful names, keeps functions small and focused, and follows consistent formatting. It's code that reads like well-written prose, where the intent is clear and the logic flows naturally.</p>
+## Principles of Clean Code
+Clean code is simple, focused, and expressive. It uses meaningful names, keeps functions small and focused, and follows consistent formatting. It's code that reads like well-written prose, where the intent is clear and the logic flows naturally.
 
-<h3>The Long-Term Benefits</h3>
-<p>Investing time in writing clean code pays dividends throughout the software's lifecycle. Clean code is easier to debug, extend, and refactor. It reduces the cognitive load on developers and makes collaboration more effective.</p>
+## The Long-Term Benefits
+Investing time in writing clean code pays dividends throughout the software's lifecycle. Clean code is easier to debug, extend, and refactor. It reduces the cognitive load on developers and makes collaboration more effective.

@@ -14,13 +14,26 @@ tags:
 featured: false
 ---
 
-<p><strong>The Alters</strong> is not just a game; it's a deep journey into the human psyche. It tells the story of an engineer named <strong>Jan Dolski</strong>, stranded alone on a harsh planet, who must create alternate versions of himself — each with different pasts and personalities — to survive.</p>
+**The Alters** is not just a game; it is a deep journey into the human psyche. It tells the story of an engineer named **Jan Dolski**, stranded alone on a hostile planet, who must create alternate versions of himself—each shaped by different past decisions and personalities—in order to survive.
 
-<h3>The Story Behind the Game</h3>
-<p>Jan Dolski is the sole survivor of a failed space mission. On a hostile planet with a deadly sun, he builds a rotating base to escape the harsh light. But to maintain and develop the base, he must create <em>Alters</em> — clones representing different possible life paths he could have taken, each with unique skills and personalities.</p>
+## The Story Behind the Game
 
-<h3>Gameplay and Mechanics</h3>
-<p>The Alters features resource management, base-building, and time-sensitive survival mechanics where every decision matters. You must balance the needs and conflicts of your Alters while racing against time and the planet's dangers.</p>
+Jan Dolski is the sole survivor of a failed space mission. Trapped on a dangerous planet with a lethal sun, he constructs a rotating base to stay out of its deadly light. However, maintaining and expanding the base requires help.
 
-<h3>Meet the Creative Minds</h3>
-<p>The game’s narrative was crafted by <strong>Magda Gamrot</strong> (Lead Writer), <strong>Katarzyna Tybinka</strong> (Senior Writer), and <strong>Tomasz Kisilewicz</strong> (Game Director). Their goal was to create a human experience about choices, identity, and the lives we might have lived.</p>
+To do so, Jan creates *Alters*—clones that represent different life paths he could have taken. Each Alter possesses unique skills, perspectives, and emotional traits, leading to both cooperation and conflict.
+
+## Gameplay and Mechanics
+
+*The Alters* combines resource management, base building, and time-sensitive survival mechanics. Every decision carries weight, as players must balance efficiency, interpersonal tensions between Alters, and the constant threat posed by the planet’s environment.
+
+Managing relationships is just as important as managing resources, making psychological strategy a core gameplay element.
+
+## Meet the Creative Minds
+
+The game’s narrative is crafted by:
+
+- **Magda Gamrot** — Lead Writer  
+- **Katarzyna Tybinka** — Senior Writer  
+- **Tomasz Kisilewicz** — Game Director  
+
+Their shared vision was to create a deeply human experience centered on choice, identity, and the lives we might have lived if we had chosen differently.
