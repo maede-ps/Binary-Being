@@ -29,13 +29,18 @@ jobs:
       - name: Create new Markdown file
         run: |
           mkdir -p content/posts
-          FILE="content/posts/${{ github.event.inputs.title// /- }}.md"
-          echo "---" >> $FILE
-          echo "title: \"${{ github.event.inputs.title }}\"" >> $FILE
-          echo "author: \"${{ github.event.inputs.author }}\"" >> $FILE
-          echo "date: \"${{ github.event.inputs.date }}\"" >> $FILE
-          echo "---" >> $FILE
-          echo "${{ github.event.inputs.body }}" >> $FILE
+
+          TITLE="${{ github.event.inputs.title }}"
+          SLUG=$(echo "$TITLE" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g')
+
+          FILE="content/posts/$SLUG.md"
+
+          echo "---" >> "$FILE"
+          echo "title: \"$TITLE\"" >> "$FILE"
+          echo "author: \"${{ github.event.inputs.author }}\"" >> "$FILE"
+          echo "date: \"${{ github.event.inputs.date }}\"" >> "$FILE"
+          echo "---" >> "$FILE"
+          echo "${{ github.event.inputs.body }}" >> "$FILE"
 
       - name: Show files
         run: ls -l content/posts
